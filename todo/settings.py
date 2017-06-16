@@ -1,4 +1,5 @@
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tq*-8(++%7i7^$gw=o$)oarz8xcp^2)2%9=0w94uf6zn826as%'
 DEBUG = True
@@ -39,8 +40,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'todo.wsgi.application'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'todo',
+        'USER': 'root',
+        'PASSWORD': ''
     }
 }
 AUTH_PASSWORD_VALIDATORS = [
