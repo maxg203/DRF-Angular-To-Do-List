@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>To Do List</title>
+<head>
+	<meta charset="utf-8">
+	<title>To Do List</title>
 
-        {% load static %}
-    </head>
-    <body ng-app="toDo" ng-contoller="toDoController">
-        <h1>To Do List</h1>
+	{% load static %}
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="toDo" ng-controller="toDoController">
+  <h2>To Do List</h2>
 
-        <form>
-            <input type="text">
-            <input type="submit" value="Submit">
-        </form>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <script src="{% static 'js/todo.js' %}"></script>
-    </body>
+  <form ng-submit="todoAdd()">
+      <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+      <input type="submit" value="Submit">
+  </form>
+  <br>
+  <div ng-repeat="todo in todoList">
+      <span ng-bind="todo.todoText"></span>
+  </div>
+  <p><button ng-click="remove()">Remove marked</button></p>
+  <script src="{% static 'js/todo.js' %}"></script>
+</body>
 </html>
+
