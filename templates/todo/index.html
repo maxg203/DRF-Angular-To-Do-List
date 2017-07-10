@@ -6,13 +6,17 @@
 
         {% load static %}
     </head>
-    <body ng-app="toDo" ng-contoller="toDoController">
+    <body ng-app="toDo" ng-controller="toDoController">
         <h1>To Do List</h1>
 
-        <form>
-            <input type="text">
+        <form ng-submit="todoAdd()">
+            <input type="text" ng-model="todoInput" placeholder="Add a new to do...">
             <input type="submit" value="Submit">
         </form>
+        <br>
+        <div ng-repeat="todo in todoList">
+            <span ng-bind="todo.todoText"></span>
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="{% static 'js/todo.js' %}"></script>
