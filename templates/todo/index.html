@@ -11,7 +11,7 @@
 
         <form ng-submit="todoAdd()">
             <input type="text" ng-model="todoInput" placeholder="Add a new to do...">
-            <input type="submit" value="Submit">
+            <button type="submit" ng-click="saveData()">Submit</button>
         </form>
         <br>
         <div ng-repeat="todo in todoList">
